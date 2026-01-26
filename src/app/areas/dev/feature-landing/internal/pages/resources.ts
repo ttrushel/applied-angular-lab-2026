@@ -76,6 +76,18 @@ import { PageLayout } from '@ht/shared/ui-common/layouts/page';
               </div>
               <div>
                 <a
+                  href="https://www.angulararchitects.io/en/blog/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link link-primary font-semibold"
+                  >Angular Architects</a
+                >
+                <p class="text-base-content/70 text-sm mt-1">
+                  German company, specializing in Angular consulting and training.
+                </p>
+              </div>
+              <div>
+                <a
                   href="https://typescriptlang.org"
                   target="_blank"
                   rel="noopener noreferrer"
