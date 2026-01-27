@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, input, signal, output } from '@angular/core';
-import { ResourceLink } from '../types';
+import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
+import { ResourceLink } from '../types';
 
 @Component({
   selector: 'app-links-resource-link',
@@ -32,6 +32,7 @@ import { NgIcon } from '@ng-icons/core';
 })
 export class LinkResourceItemLink {
   // old skool you would use @Input() decorator. No more.
+
   link = input.required<ResourceLink>();
   kind = input<'primary' | 'additional'>('primary');
   linkVisited = output<string>();
