@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { PageLayout } from '@ht/shared/ui-common/layouts/page';
 
 @Component({
@@ -8,23 +8,26 @@ import { PageLayout } from '@ht/shared/ui-common/layouts/page';
   template: `<app-ui-page title="old-skool">
     <div class="flex items-center justify-center">
       <button class="btn btn-circle btn-error" (click)="decrement()">-</button>
-      <span class="mx-2 text-2xl font-mono">{{ count }}</span>
+      <span class="mx-2 text-2xl font-mono">{{ count() }}</span>
       <button class="btn btn-circle btn-success" (click)="increment()">+</button>
-      <span class="mx-2 text-2xl font-mono">{{ count * 2 }}</span>
-      <span class="mx-2 text-2xl font-mono">{{ count * 10 }}</span>
+      <span class="mx-2 text-2xl font-mono">{{ count() * 2 }}</span>
+      <span class="mx-2 text-2xl font-mono">{{ count() * 10 }}</span>
     </div>
   </app-ui-page>`,
   styles: ``,
 })
 export class NewSkoolPage {
-  count = 0; // a variable
+  // the jeff default = no "raw" state (variables) in a component, all signals all the time.
+  count = signal(0); // a variable
 
   increment() {
-    this.count++; // that is mutated based on some user interaction
+    // way one - give it a new value
+    this.count.set(this.count() + 1);
   }
 
   decrement() {
-    this.count--; // that is mutated based on some user interaction
+    // way two - give it a function, it will give you the current value, the function should return the new value
+    this.count.update((currentValue) => currentValue - 1);
   }
 
   updateTheUi() {
