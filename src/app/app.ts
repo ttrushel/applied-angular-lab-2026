@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { SectionLink } from '@ht/shared/ui-common/layouts/section';
 import { authStore } from '@ht/shared/util-auth/store';
 import { IconName, NgIcon } from '@ng-icons/core';
+import { Key } from 'node:readline';
 
 @Component({
   selector: 'app-root',
@@ -78,8 +79,18 @@ import { IconName, NgIcon } from '@ng-icons/core';
     </div>
   </div>`,
   styles: [],
+  host: {
+    class: '',
+  },
 })
 export class App {
+  onKeyPressDown(evt: Event) {
+    console.log('You Hit A Key');
+    const key = evt as KeyboardEvent;
+    if (key !== null) {
+      console.log(`Key pressed: ${key.key}`);
+    }
+  }
   protected router = inject(Router);
   goHome() {
     this.router.navigateByUrl('/home');
