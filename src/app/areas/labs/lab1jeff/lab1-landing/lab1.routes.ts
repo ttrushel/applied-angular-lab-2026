@@ -2,8 +2,7 @@ import { Routes } from '@angular/router';
 import { Home } from './internal/home';
 import { HomePage } from './internal/pages/home';
 
-
-export const jefflabsFeatureRoutes: Routes = [
+export const lab1FeatureRoutes: Routes = [
   {
     path: '',
     providers: [],
@@ -11,8 +10,8 @@ export const jefflabsFeatureRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomePage
-      }
-    ]
+        component: HomePage,
+      },
+    ],
   },
 ];

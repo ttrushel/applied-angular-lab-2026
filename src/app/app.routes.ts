@@ -38,9 +38,7 @@ export const routes: Routes = [
   {
     path: 'jefflabs',
     loadChildren: () =>
-      import('./areas/labs/jefflabs-landing/jefflabs-landing/jefflabs.routes').then(
-        (r) => r.jefflabsFeatureRoutes,
-      ),
+      import('./areas/labs/lab1jeff/lab1-landing/lab1.routes').then((r) => r.lab1FeatureRoutes),
   },
   {
     path: 'lab1',
